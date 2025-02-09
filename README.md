@@ -85,7 +85,7 @@ mvn spring-boot:run
 Or use the pre-built JAR:
 
 ```cmd
-java -jar ../executable-jar-be/tictactoe.jar
+java -jar ./executable-jar-be/tictactoe.jar
 ```
 
 ### Frontend Setup
@@ -123,7 +123,7 @@ The application will be available at:
 
 ### GET /api/tic-tac-toe/initialize/{size}
 
-Response:
+#### Response:
 
 ```json
 {
@@ -145,7 +145,11 @@ Response:
 
 ### POST /api/tic-tac-toe/move
 
-Request:
+#### Header
+
+`Content-Type: application/json`
+
+#### Request:
 
 ```json
 {
@@ -155,7 +159,7 @@ Request:
 }
 ```
 
-Response:
+#### Response:
 
 ```json
 {
@@ -173,11 +177,11 @@ Response:
 }
 ```
 
-Check Winner
-http
+## Check Winner
 
-GET /api/tic-tac-toe/getWinner
-Response:
+### GET /api/tic-tac-toe/getWinner
+
+##### Response:
 
 ```json
 {
@@ -186,11 +190,11 @@ Response:
 }
 ```
 
-New Game
-http
+## New Game
 
-GET /api/tic-tac-toe/newGame/{size}
-Response:
+### GET /api/tic-tac-toe/newGame/{size}
+
+#### Response:
 
 ```json
 {
@@ -208,7 +212,7 @@ Response:
 }
 ```
 
-Error Responses
+## Error Responses
 
 ```json
 {
@@ -217,7 +221,7 @@ Error Responses
 }
 ```
 
-Project Structure
+## Project Structure
 
 ```
 .

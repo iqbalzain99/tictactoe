@@ -179,6 +179,17 @@ const DynamicTicTacToe = () => {
           </button>
         )}
 
+        {/* Reset all of the game button */}
+        {!gameState.anyWinner && (
+          <button 
+            onClick={initializeGame}
+            style={{ marginLeft: '20px' }}
+            disabled={loading}
+          >
+            Reset Game
+          </button>
+        )}
+
         {gameState.nextMove && (
           <div style={{ marginTop: '10px' }}>
             Next Move: Player {gameState.nextMove}

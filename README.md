@@ -67,6 +67,26 @@ This project consists of:
 
 ## Installation
 
+### Build with Docker
+
+- Requirements:  
+  [Docker](https://www.docker.com/get-started/)
+
+#### Clone this repository
+
+```sh
+git clone --recursive https://github.com/iqbalzain99/tictactoe.git
+cd tictactoe
+```
+
+#### Run the docker image
+
+```sh
+docker-compose up -d --build
+```
+
+## Manual Installation
+
 ### Backend Setup
 
 Navigate to the backend directory:

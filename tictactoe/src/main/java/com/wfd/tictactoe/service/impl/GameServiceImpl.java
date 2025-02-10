@@ -22,10 +22,11 @@ public class GameServiceImpl implements GameService {
     private static Logger logger = LogManager.getLogger("gameServiceLog");
 
     @Autowired
-    TicTacToe ticTacToe;
+    private TicTacToe ticTacToe;
 
     @Override
     public GeneralResponse initializeGame(int boardSize) throws InvalidBoardException {
+        ticTacToe.logInstance();
         // Reset all the board and the data
         ticTacToe.setPlayer1WinCount(0);
         ticTacToe.setPlayer2WinCount(0);
@@ -39,6 +40,7 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public GeneralResponse makeMove(MoveRequest moveRequest) throws InvalidMoveException, PlayerUnknownException, WrongPlayerMoveException, InvalidBoardException, GameOverException {
+        ticTacToe.logInstance();
         // Get the value that is needed
         Integer player = moveRequest.getPlayer();
         Integer col = moveRequest.getCol();

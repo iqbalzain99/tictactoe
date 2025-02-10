@@ -74,7 +74,7 @@ const DynamicTicTacToe = () => {
 
   // Game actions
   const checkWinner = async () => {
-    const response = await fetch(`${API_BASE}/getWinner`);
+    const response = await fetch(`${API_BASE}/getWinner`, {credentials: "include"});
     const data = await response.json();
     
     if (data.finalStatus === 'WIN') {
@@ -97,7 +97,7 @@ const DynamicTicTacToe = () => {
     const validatedSize = Math.min(Math.max(parseInt(gridSizeInput), 3), 10);
     
     await handleApiCall(async () => {
-      const response = await fetch(`${API_BASE}/newGame/${validatedSize}`);
+      const response = await fetch(`${API_BASE}/newGame/${validatedSize}`, {credentials: "include",});
       const data = await response.json();
       setCurrentGridSize(validatedSize);
       updateGameState(data);
@@ -108,7 +108,7 @@ const DynamicTicTacToe = () => {
     const validatedSize = Math.min(Math.max(parseInt(gridSizeInput), 3), 10);
     
     await handleApiCall(async () => {
-      const response = await fetch(`${API_BASE}/initialize/${validatedSize}`);
+      const response = await fetch(`${API_BASE}/initialize/${validatedSize}`, {credentials: "include"});
       const data = await response.json();
       setCurrentGridSize(validatedSize);
       updateGameState(data);
@@ -121,6 +121,7 @@ const DynamicTicTacToe = () => {
     await handleApiCall(async () => {
       const response = await fetch(`${API_BASE}/move`, {
         method: 'POST',
+        credentials: "include",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           player: gameState.nextMove,

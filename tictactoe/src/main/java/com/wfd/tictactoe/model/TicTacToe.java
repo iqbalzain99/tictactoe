@@ -5,16 +5,18 @@ import com.wfd.tictactoe.dto.GeneralResponse;
 import com.wfd.tictactoe.exception.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
-import java.util.List;
-
+@SessionScope
 @Component
-@Scope("singleton")
 public class TicTacToe {
 
     private static Logger logger = LogManager.getLogger("ticTacToeModelLog");
+
+    public TicTacToe() {
+        logger.info("New TicTacToe instance created: " + this.hashCode());
+    }
 
     // Win count for both player
     private Integer player1WinCount = 0;
@@ -39,7 +41,11 @@ public class TicTacToe {
     private boolean isFinal = false;
 
     // Board of the game, contains the occupied field by the number of the player.
-    private Board board = new Board(new Integer[boardSize][boardSize]);
+    private Board board;
+
+    public void logInstance() {
+        logger.info("TicTacToe instance called: " + this.hashCode());
+    }
 
 
     // Getter and Setter

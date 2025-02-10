@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/tic-tac-toe")
-@CrossOrigin(origins = "*") // Allow all port cross origin
 public class GameController {
 
     private static Logger logger = LogManager.getLogger("gameContollerLog");
